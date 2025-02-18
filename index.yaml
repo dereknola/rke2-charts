@@ -472,6 +472,34 @@ entries:
       catalog.cattle.io/rancher-version: '>= 2.9.0-0'
       catalog.cattle.io/release-name: vsphere-csi
     apiVersion: v1
+    appVersion: 3.3.1-rancher9
+    created: "2025-02-18T22:22:36.138971179Z"
+    description: vSphere Cloud Storage Interface (CSI)
+    digest: 119d188234c8a1ba2d5ec86a2fbed79e332540f4feeaa49dfe92c72414b0b9d9
+    icon: https://charts.rancher.io/assets/logos/vsphere-csi.svg
+    keywords:
+    - infrastructure
+    maintainers:
+    - email: jiaqi.luo@suse.com
+      name: Jiaqi Luo
+    - email: brad.davidson@suse.com
+      name: Brad Davidson
+    name: rancher-vsphere-csi
+    sources:
+    - https://github.com/kubernetes-sigs/vsphere-csi-driver
+    urls:
+    - assets/rancher-vsphere-csi/rancher-vsphere-csi-3.3.1-rancher900.tgz
+    version: 3.3.1-rancher900
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/display-name: vSphere CSI
+      catalog.cattle.io/kube-version: '>= 1.27.0-0 < 1.33.0-0'
+      catalog.cattle.io/namespace: kube-system
+      catalog.cattle.io/os: linux,windows
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/rancher-version: '>= 2.9.0-0'
+      catalog.cattle.io/release-name: vsphere-csi
+    apiVersion: v1
     appVersion: 3.3.1-rancher8
     created: "2025-01-08T21:33:32.867458358Z"
     description: vSphere Cloud Storage Interface (CSI)
@@ -6541,6 +6569,36 @@ entries:
   - annotations:
       fleet.cattle.io/bundle-id: rke2
     apiVersion: v2
+    appVersion: v3.3.2
+    created: "2025-02-18T22:22:36.552768523Z"
+    description: A Traefik based Kubernetes ingress controller
+    digest: 621ba416a150595a5d53c6d5f3dd9d596fe918193f6a034fdcee150a21ac9ad7
+    home: https://traefik.io/
+    icon: https://raw.githubusercontent.com/traefik/traefik/v2.3/docs/content/assets/img/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    - networking
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - email: michel.loiseleur@traefik.io
+      name: mloiseleur
+    - email: charlie.haley@traefik.io
+      name: charlie-haley
+    - email: remi.buisson@traefik.io
+      name: darkweaver87
+    - name: jnoordsij
+    name: rke2-traefik
+    sources:
+    - https://github.com/traefik/traefik
+    - https://github.com/traefik/traefik-helm-chart
+    type: application
+    urls:
+    - assets/rke2-traefik/rke2-traefik-34.2.000.tgz
+    version: 34.2.000
+  - annotations:
+      fleet.cattle.io/bundle-id: rke2
+    apiVersion: v2
     appVersion: v2.11.10
     created: "2024-10-09T23:31:45.802099513Z"
     description: A Traefik based Kubernetes ingress controller
@@ -6614,6 +6672,18 @@ entries:
     - assets/rke2-traefik/rke2-traefik-25.0.000.tgz
     version: 25.0.000
   rke2-traefik-crd:
+  - annotations:
+      fleet.cattle.io/bundle-id: rke2
+    apiVersion: v1
+    appVersion: v3.3.2
+    created: "2025-02-18T22:22:36.55819475Z"
+    description: Installs the CRDs for rke2-traefik
+    digest: 8328faeb90324d7a5541400f80d9f5d97801f2f63abd5ffa972eb7624fa5b9d9
+    name: rke2-traefik-crd
+    type: application
+    urls:
+    - assets/rke2-traefik/rke2-traefik-crd-34.2.000.tgz
+    version: 34.2.000
   - annotations:
       fleet.cattle.io/bundle-id: rke2
     apiVersion: v1
