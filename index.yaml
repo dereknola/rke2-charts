@@ -723,6 +723,23 @@ entries:
   - annotations:
       catalog.cattle.io/namespace: tigera-operator
     apiVersion: v2
+    appVersion: v3.29.3
+    created: "2025-04-14T17:37:42.499192571Z"
+    description: Installs the Tigera operator for Calico
+    digest: bb852891a28609c7d7afb3fb6481531207bb30385ffdf3c5a9b773b4433a62df
+    home: https://docs.tigera.io/calico
+    icon: https://docs.tigera.io/img/calico-logo.png
+    name: rke2-calico
+    sources:
+    - https://github.com/projectcalico/calico/tree/master/charts/tigera-operator
+    - https://github.com/tigera/operator
+    - https://github.com/projectcalico/calico
+    urls:
+    - assets/rke2-calico/rke2-calico-v3.29.300.tgz
+    version: v3.29.300
+  - annotations:
+      catalog.cattle.io/namespace: tigera-operator
+    apiVersion: v2
     appVersion: v3.29.2
     created: "2025-02-10T21:27:45.62252048Z"
     description: Installs the Tigera operator for Calico
@@ -979,6 +996,15 @@ entries:
     version: v3.18.1-101
   rke2-calico-crd:
   - apiVersion: v1
+    created: "2025-04-14T17:37:42.483391556Z"
+    description: Installs the CRDs for rke2-calico
+    digest: ce21f31eb1d3ab036d4174f805e7d9a05cb11069924d369076e36c4a5dd74ea0
+    name: rke2-calico-crd
+    type: application
+    urls:
+    - assets/rke2-calico/rke2-calico-crd-v3.29.300.tgz
+    version: v3.29.300
+  - apiVersion: v1
     created: "2025-02-10T21:27:45.606892414Z"
     description: Installs the CRDs for rke2-calico
     digest: 817c6867e97be05626809f631ca4bc3177b86bba20eed8b661c9101f2aa1dbc1
@@ -1177,6 +1203,23 @@ entries:
     - assets/rke2-calico/rke2-calico-crd-v1.0.001.tgz
     version: v1.0.001
   rke2-canal:
+  - apiVersion: v1
+    appVersion: v3.29.3
+    created: "2025-04-14T17:37:42.527207196Z"
+    description: Install Canal Network Plugin.
+    digest: 84aab4f816333bf0a60d2361cab04ce45b9b65786288fc1a8613c7eca821ba79
+    home: https://www.projectcalico.org/
+    keywords:
+    - canal
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-canal
+    sources:
+    - https://github.com/rancher/rke2-charts
+    urls:
+    - assets/rke2-canal/rke2-canal-v3.29.3-build2025040801.tgz
+    version: v3.29.3-build2025040801
   - apiVersion: v1
     appVersion: v3.29.2
     created: "2025-03-10T15:21:57.780867696Z"
@@ -3404,6 +3447,34 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: fixed
+          description: improve default readiness probe config for shutdown
+    apiVersion: v2
+    appVersion: 1.12.0
+    created: "2025-04-14T17:37:42.748470383Z"
+    description: CoreDNS is a DNS server that chains plugins and provides Kubernetes
+      DNS Services
+    digest: 440320d3e2964361c2bcfe4fea00add334ec1523c12937a754352a8917d37a8a
+    home: https://coredns.io
+    icon: https://coredns.io/images/CoreDNS_Colour_Horizontal.png
+    keywords:
+    - coredns
+    - dns
+    - kubedns
+    maintainers:
+    - name: mrueg
+    - name: haad
+    - name: hagaibarel
+    - name: shubham-cmyk
+    name: rke2-coredns
+    sources:
+    - https://github.com/coredns/coredns
+    type: application
+    urls:
+    - assets/rke2-coredns/rke2-coredns-1.39.201.tgz
+    version: 1.39.201
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: fixed
           description: align imagePullSecrets in Deployment and ServiceAccount
     apiVersion: v2
     appVersion: 1.12.0
@@ -4099,6 +4170,19 @@ entries:
     version: 1.10.101-build2021022301
   rke2-flannel:
   - apiVersion: v1
+    appVersion: v0.26.6
+    created: "2025-04-14T17:37:42.752010336Z"
+    description: Install Flannel Network Plugin.
+    digest: a0765a1cb28352cc287ca710f485a17cb09b1774584df199b36b9e0d0e46938b
+    keywords:
+    - Flannel
+    name: rke2-flannel
+    sources:
+    - https://github.com/rancher/rke2-charts
+    urls:
+    - assets/rke2-flannel/rke2-flannel-v0.26.601.tgz
+    version: v0.26.601
+  - apiVersion: v1
     appVersion: v0.26.5
     created: "2025-03-10T15:21:57.989386291Z"
     description: Install Flannel Network Plugin.
@@ -4281,6 +4365,33 @@ entries:
     - assets/rke2-flannel/rke2-flannel-v0.24.401.tgz
     version: v0.24.401
   rke2-ingress-nginx:
+  - annotations:
+      artifacthub.io/changes: |
+        - Update Ingress-Nginx version controller-v1.12.1
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.12.1
+    created: "2025-04-14T17:37:42.826950465Z"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: 6854d468ac748d17b80104f1e5e5a3d96e9fe248f1750a2b27fa39785da55035
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: cpanato
+    - name: Gacko
+    - name: strongjz
+    - name: tao12345666333
+    name: rke2-ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - assets/rke2-ingress-nginx/rke2-ingress-nginx-4.12.100.tgz
+    version: 4.12.100
   - annotations:
       artifacthub.io/changes: |
         - 'CI: Fix chart testing. (#12258)'
@@ -6337,6 +6448,27 @@ entries:
     version: 2.11.100-build2021022300
   rke2-multus:
   - apiVersion: v2
+    appVersion: 4.2.0
+    created: "2025-04-14T17:37:42.877928039Z"
+    dependencies:
+    - condition: rke2-whereabouts.enabled
+      name: rke2-whereabouts
+      repository: file://./charts/rke2-whereabouts
+    description: Multus Helm chart for Kubernetes
+    digest: 4c375afaebeb0eb37a97e875bd683e865e6405dd61e69068f2508d577f5f7243
+    home: https://github.com/k8snetworkplumbingwg/multus-cni
+    icon: https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/master/doc/images/Multus.png
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-multus
+    sources:
+    - https://github.com/intel/multus-cni
+    type: application
+    urls:
+    - assets/rke2-multus/rke2-multus-v4.2.001.tgz
+    version: v4.2.001
+  - apiVersion: v2
     appVersion: 4.1.4
     created: "2025-03-10T15:21:58.105414265Z"
     dependencies:
@@ -6940,6 +7072,36 @@ entries:
   - annotations:
       fleet.cattle.io/bundle-id: rke2
     apiVersion: v2
+    appVersion: v3.3.5
+    created: "2025-04-14T17:37:42.901082486Z"
+    description: A Traefik based Kubernetes ingress controller
+    digest: f2abd8d03a73bb17cae361c303bcc8554c0620cfe5f496bd185c5b301111df1e
+    home: https://traefik.io/
+    icon: https://raw.githubusercontent.com/traefik/traefik/v2.3/docs/content/assets/img/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    - networking
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - email: michel.loiseleur@traefik.io
+      name: mloiseleur
+    - email: charlie.haley@traefik.io
+      name: charlie-haley
+    - email: remi.buisson@traefik.io
+      name: darkweaver87
+    - name: jnoordsij
+    name: rke2-traefik
+    sources:
+    - https://github.com/traefik/traefik
+    - https://github.com/traefik/traefik-helm-chart
+    type: application
+    urls:
+    - assets/rke2-traefik/rke2-traefik-34.2.001.tgz
+    version: 34.2.001
+  - annotations:
+      fleet.cattle.io/bundle-id: rke2
+    apiVersion: v2
     appVersion: v3.3.2
     created: "2025-02-18T22:22:36.552768523Z"
     description: A Traefik based Kubernetes ingress controller
@@ -7043,6 +7205,18 @@ entries:
     - assets/rke2-traefik/rke2-traefik-25.0.000.tgz
     version: 25.0.000
   rke2-traefik-crd:
+  - annotations:
+      fleet.cattle.io/bundle-id: rke2
+    apiVersion: v1
+    appVersion: v3.3.5
+    created: "2025-04-14T17:37:42.910686828Z"
+    description: Installs the CRDs for rke2-traefik
+    digest: 28eddaeebd86cc3f30df909b68e029949fbd39ac64dd5878e35975f75fd1088a
+    name: rke2-traefik-crd
+    type: application
+    urls:
+    - assets/rke2-traefik/rke2-traefik-crd-34.2.001.tgz
+    version: 34.2.001
   - annotations:
       fleet.cattle.io/bundle-id: rke2
     apiVersion: v1
