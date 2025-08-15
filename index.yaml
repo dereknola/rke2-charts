@@ -4348,6 +4348,34 @@ entries:
           description: ServiceAccount now applies the `customLabels` field if set.
     apiVersion: v2
     appVersion: 1.12.2
+    created: "2025-08-15T20:17:35.774337134Z"
+    description: CoreDNS is a DNS server that chains plugins and provides Kubernetes
+      DNS Services
+    digest: 90c48b029cdb5661357c3ce208185cdb44e531d52c4d30bb5478ff53829c3c3b
+    home: https://coredns.io
+    icon: https://coredns.io/images/CoreDNS_Colour_Horizontal.png
+    keywords:
+    - coredns
+    - dns
+    - kubedns
+    maintainers:
+    - name: mrueg
+    - name: haad
+    - name: hagaibarel
+    - name: shubham-cmyk
+    name: rke2-coredns
+    sources:
+    - https://github.com/coredns/coredns
+    type: application
+    urls:
+    - assets/rke2-coredns/rke2-coredns-1.43.101.tgz
+    version: 1.43.101
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
+          description: ServiceAccount now applies the `customLabels` field if set.
+    apiVersion: v2
+    appVersion: 1.12.2
     created: "2025-08-06T17:17:50.035028879Z"
     description: CoreDNS is a DNS server that chains plugins and provides Kubernetes
       DNS Services
@@ -5468,6 +5496,33 @@ entries:
     - assets/rke2-flannel/rke2-flannel-v0.24.401.tgz
     version: v0.24.401
   rke2-ingress-nginx:
+  - annotations:
+      artifacthub.io/changes: |
+        - Update Ingress-Nginx version controller-v1.12.4
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.12.4
+    created: "2025-08-15T20:17:35.879683394Z"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: 3b9fb4a91e85043fdaf19b2f247e52288e118a7d58e5b2ae5e5bf09b75fbf39d
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: cpanato
+    - name: Gacko
+    - name: strongjz
+    - name: tao12345666333
+    name: rke2-ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - assets/rke2-ingress-nginx/rke2-ingress-nginx-4.12.403.tgz
+    version: 4.12.403
   - annotations:
       artifacthub.io/changes: |
         - Update Ingress-Nginx version controller-v1.12.4
