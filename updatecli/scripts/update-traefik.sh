@@ -25,7 +25,7 @@ sed -i \
     -e 's/^packageVersion: .*/packageVersion: 00/' \
     "${PACKAGE_FILE}"
 
-GOCACHE="/home/runner/.cache/go-build" GOPATH="/home/runner/go" PACKAGE="${PACKAGE}" make prepare
+GOCACHE="/home/$USER/.cache/go-build" GOPATH="/home/$USER/go" PACKAGE="${PACKAGE}" make prepare
 find "packages/${PACKAGE}/charts" -name '*.orig' -delete
-GOCACHE="/home/runner/.cache/go-build" GOPATH="/home/runner/go" PACKAGE="${PACKAGE}" make patch
-GOCACHE="/home/runner/.cache/go-build" GOPATH="/home/runner/go" PACKAGE="${PACKAGE}" make clean
+GOCACHE="/home/$USER/.cache/go-build" GOPATH="/home/$USER/go" PACKAGE="${PACKAGE}" make patch
+GOCACHE="/home/$USER/.cache/go-build" GOPATH="/home/$USER/go" PACKAGE="${PACKAGE}" make clean
