@@ -41,6 +41,35 @@ entries:
       catalog.cattle.io/rancher-version: '>= 2.7.0-0'
       catalog.cattle.io/release-name: harvester-cloud-provider
       catalog.cattle.io/ui-component: harvester-cloud-provider
+      catalog.cattle.io/upstream-version: 0.2.15
+    apiVersion: v2
+    appVersion: v0.2.8
+    created: "2026-08-17T17:22:29.955420135Z"
+    dependencies:
+    - condition: kube-vip.enabled
+      name: kube-vip
+      repository: file://./charts/kube-vip
+    description: A Helm chart for Harvester Cloud Provider
+    digest: 49cbbb78ab6e7e62fdfc1cc70eaf5beb017c902fb9faa9b1f6205cf5b7609d7d
+    keywords:
+    - infrastructure
+    - harvester
+    maintainers:
+    - name: harvester
+    name: harvester-cloud-provider
+    type: application
+    urls:
+    - assets/harvester-cloud-provider/harvester-cloud-provider-0.2.1500.tgz
+    version: 0.2.1500
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/display-name: Harvester Cloud Provider
+      catalog.cattle.io/kube-version: '>= 1.23.0-0'
+      catalog.cattle.io/namespace: kube-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/rancher-version: '>= 2.7.0-0'
+      catalog.cattle.io/release-name: harvester-cloud-provider
+      catalog.cattle.io/ui-component: harvester-cloud-provider
       catalog.cattle.io/upstream-version: 0.2.14
     apiVersion: v2
     appVersion: v0.2.7
@@ -583,6 +612,31 @@ entries:
     - assets/harvester-cloud-provider/harvester-cloud-provider-0.1.200.tgz
     version: 0.1.200
   harvester-csi-driver:
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/display-name: Harvester CSI Driver
+      catalog.cattle.io/kube-version: '>= 1.18.0-0'
+      catalog.cattle.io/namespace: kube-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux
+      catalog.cattle.io/rancher-version: '>= 2.6.1-0 < 2.8.0-0'
+      catalog.cattle.io/release-name: harvester-csi-driver
+      catalog.cattle.io/ui-component: harvester-csi-driver
+    apiVersion: v2
+    appVersion: v0.2.9
+    created: "2026-08-17T17:22:29.968734759Z"
+    description: A Helm chart for Harvester CSI driver
+    digest: e7fdcd5e11f7a55e252d41cf3ec5e18343ca249d62f7eba4a7d60149acc4a38d
+    keywords:
+    - infrastructure
+    - harvester
+    maintainers:
+    - name: harvester
+    name: harvester-csi-driver
+    type: application
+    urls:
+    - assets/harvester-csi-driver/harvester-csi-driver-0.1.3100.tgz
+    version: 0.1.3100
   - annotations:
       catalog.cattle.io/certified: rancher
       catalog.cattle.io/display-name: Harvester CSI Driver
@@ -4355,6 +4409,23 @@ entries:
     - assets/rke2-calico/rke2-calico-crd-v1.0.001.tgz
     version: v1.0.001
   rke2-canal:
+  - apiVersion: v1
+    appVersion: v3.32.1
+    created: "2026-08-17T17:22:30.517682049Z"
+    description: Install Canal Network Plugin.
+    digest: ff0e9ae01cda349dce9d0be3a8a401b77518e6c0fb88164475c03f27cdc776d4
+    home: https://www.projectcalico.org/
+    keywords:
+    - canal
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-canal
+    sources:
+    - https://github.com/rancher/rke2-charts
+    urls:
+    - assets/rke2-canal/rke2-canal-v3.32.1-build2026081400.tgz
+    version: v3.32.1-build2026081400
   - apiVersion: v1
     appVersion: v3.32.1
     created: "2026-08-10T21:45:09.909455481Z"
@@ -19970,6 +20041,19 @@ entries:
   rke2-flannel:
   - apiVersion: v1
     appVersion: v0.28.9
+    created: "2026-08-17T17:22:31.615758721Z"
+    description: Install Flannel Network Plugin.
+    digest: d1c5c3f9850f1284b20f9b48a377896b08825018de660c1ad93246bb7553284f
+    keywords:
+    - Flannel
+    name: rke2-flannel
+    sources:
+    - https://github.com/rancher/rke2-charts
+    urls:
+    - assets/rke2-flannel/rke2-flannel-v0.28.904.tgz
+    version: v0.28.904
+  - apiVersion: v1
+    appVersion: v0.28.9
     created: "2026-08-10T21:45:11.006433436Z"
     description: Install Flannel Network Plugin.
     digest: 71c10d49f88e35224af185b2a0adf8325e6ca04f92c72198bc6e023cb7358390
@@ -20955,6 +21039,33 @@ entries:
     - assets/rke2-gateway-api-crd/rke2-gateway-api-crd-1.5.100.tgz
     version: 1.5.100
   rke2-ingress-nginx:
+  - annotations:
+      artifacthub.io/changes: |
+        - Update Ingress-Nginx version controller-v1.15.1
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.15.1
+    created: "2026-08-17T17:22:31.892230012Z"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: d23c2280db131444d17c4cf987c8fc6c297694da62f29d1a8658de6ffc0742ae
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: cpanato
+    - name: Gacko
+    - name: strongjz
+    - name: tao12345666333
+    name: rke2-ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - assets/rke2-ingress-nginx/rke2-ingress-nginx-4.15.108.tgz
+    version: 4.15.108
   - annotations:
       artifacthub.io/changes: |
         - Update Ingress-Nginx version controller-v1.15.1
