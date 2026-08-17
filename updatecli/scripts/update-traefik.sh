@@ -13,7 +13,7 @@ fi
 CURRENT_URL=$(sed -n 's/^url: //p' "${PACKAGE_FILE}")
 CURRENT_VERSION=${CURRENT_URL##*/traefik-}
 CURRENT_VERSION=${CURRENT_VERSION%.tgz}
-
+USER=$(whoami)
 if [[ "${CURRENT_VERSION}" == "${NEW_VERSION}" ]]; then
     echo "Traefik chart is already at ${NEW_VERSION}, nothing to do"
     exit 0
