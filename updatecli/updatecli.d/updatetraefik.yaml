@@ -31,8 +31,6 @@ targets:
         - name: TRAEFIK_CHART_VERSION
           value: '{{ source "traefik_chart" }}'
         - name: PATH
-        - name: UPDATECLI_GITHUB_WORKFLOW_URL
-        - name: GH_TOKEN
 
 scms:
   default:

@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 set -eu
 
-source "$(dirname "$0")/create-issue.sh"
-
-ISSUE_TITLE="Updatecli failed for Traefik ${TRAEFIK_CHART_VERSION:-unknown}"
-trap report-error EXIT INT
-
 PACKAGE="rke2-traefik"
 PACKAGE_FILE="packages/${PACKAGE}/package.yaml"
 NEW_VERSION="${TRAEFIK_CHART_VERSION:-}"
