@@ -15,7 +15,7 @@ if [[ -z "${NEW_VERSION}" ]]; then
     exit 1
 fi
 
-CURRENT_URL=$(yq '.url' "${PACKAGE_FILE}")
+CURRENT_URL=$(sed -n 's/^url: //p' "${PACKAGE_FILE}")
 CURRENT_VERSION=${CURRENT_URL##*/traefik-}
 CURRENT_VERSION=${CURRENT_VERSION%.tgz}
 
@@ -25,7 +25,10 @@ if [[ "${CURRENT_VERSION}" == "${NEW_VERSION}" ]]; then
 fi
 
 echo "Updating Traefik chart from ${CURRENT_VERSION} to ${NEW_VERSION}"
-yq -i ".url = \"https://traefik.github.io/charts/traefik/traefik-${NEW_VERSION}.tgz\" | .packageVersion = 00" "${PACKAGE_FILE}"
+sed -i \
+    -e "s|^url: .*|url: https://traefik.github.io/charts/traefik/traefik-${NEW_VERSION}.tgz|" \
+    -e 's/^packageVersion: .*/packageVersion: 00/' \
+    "${PACKAGE_FILE}"
 
 GOCACHE="/home/runner/.cache/go-build" GOPATH="/home/runner/go" PACKAGE="${PACKAGE}" make prepare
 find "packages/${PACKAGE}/charts" -name '*.orig' -delete
