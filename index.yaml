@@ -25592,6 +25592,40 @@ entries:
           description: "Update the Metrics Server OCI image to [`0.8.1`](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.8.1)."
     apiVersion: v2
     appVersion: 0.8.1
+    created: "2026-08-19T16:43:19.212457822Z"
+    description: Metrics Server is a scalable, efficient source of container resource
+      metrics for Kubernetes built-in autoscaling pipelines.
+    digest: 5112d2b8ca0b970017e8afb6df9416d85f901fda9b3ff0d40881c00f7dca542e
+    home: https://github.com/kubernetes-sigs/metrics-server
+    icon: https://avatars.githubusercontent.com/u/36015203?s=400&v=4
+    keywords:
+    - kubernetes
+    - metrics-server
+    - metrics
+    maintainers:
+    - name: stevehipwell
+      url: https://github.com/stevehipwell
+    - name: krmichel
+      url: https://github.com/krmichel
+    - name: endrec
+      url: https://github.com/endrec
+    name: rke2-metrics-server
+    sources:
+    - https://github.com/kubernetes-sigs/metrics-server
+    type: application
+    urls:
+    - assets/rke2-metrics-server/rke2-metrics-server-3.13.108.tgz
+    version: 3.13.108
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: fixed
+          description: "Conditionally render `insecureSkipTLSVerify` field in APIService template to prevent GitOps sync drift when value is `false`."
+        - kind: fixed
+          description: "Do not render annotations as null in APIService template to prevent permanent OutOfSync in ArgoCD."
+        - kind: changed
+          description: "Update the Metrics Server OCI image to [`0.8.1`](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.8.1)."
+    apiVersion: v2
+    appVersion: 0.8.1
     created: "2026-08-18T17:10:05.524307079Z"
     description: Metrics Server is a scalable, efficient source of container resource
       metrics for Kubernetes built-in autoscaling pipelines.
@@ -26827,6 +26861,27 @@ entries:
     - assets/rke2-metrics-server/rke2-metrics-server-2.11.100-build2021022300.tgz
     version: 2.11.100-build2021022300
   rke2-multus:
+  - apiVersion: v1
+    appVersion: 4.3.0
+    created: "2026-08-19T16:43:19.30350035Z"
+    dependencies:
+    - condition: rke2-whereabouts.enabled
+      name: rke2-whereabouts
+      repository: file://./charts/rke2-whereabouts
+    description: Multus Helm chart for Kubernetes
+    digest: d779ad551361a45eddfb9900e995ea14e5fe0d0badab0c43469052507c3fbdc2
+    home: https://github.com/k8snetworkplumbingwg/multus-cni
+    icon: https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/master/doc/images/Multus.png
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-multus
+    sources:
+    - https://github.com/intel/multus-cni
+    type: application
+    urls:
+    - assets/rke2-multus/rke2-multus-v4.3.014.tgz
+    version: v4.3.014
   - apiVersion: v1
     appVersion: 4.3.0
     created: "2026-08-18T21:04:24.654452106Z"
@@ -29208,6 +29263,15 @@ entries:
     version: v3.7.1-build2021041601
   rke2-multus-crd:
   - apiVersion: v1
+    created: "2026-08-19T16:43:19.213649701Z"
+    description: Installs the CRDs for rke2-multus
+    digest: b48dc484bb10778047090214bdc9935aa3cfb6f70f737297a2bd4aa46667dc4e
+    name: rke2-multus-crd
+    type: application
+    urls:
+    - assets/rke2-multus/rke2-multus-crd-4.3.014.tgz
+    version: 4.3.014
+  - apiVersion: v1
     created: "2026-08-18T21:04:24.56543975Z"
     description: Installs the CRDs for rke2-multus
     digest: b6ee16813b96c31d9fcbf0c4ef0cb376b624fcd4ec25a1da20e9dedcf4b4285e
@@ -29300,6 +29364,30 @@ entries:
     - assets/rke2-security-responder/rke2-security-responder-0.1.301.tgz
     version: 0.1.301
   rke2-snapshot-controller:
+  - apiVersion: v2
+    appVersion: v8.6.0
+    created: "2026-08-19T16:43:19.317422474Z"
+    description: |
+      Deploys a Snapshot Controller in a cluster. Snapshot Controllers are often bundled with the Kubernetes distribution,
+      this chart is meant for cases where it is not.
+    digest: a54c7c46470eb227948bbed695190652f1791bd826d74e40715c6153c81391df
+    home: https://github.com/piraeusdatastore/helm-charts
+    icon: https://raw.githubusercontent.com/piraeusdatastore/piraeus/master/artwork/sandbox-artwork/icon/color.svg
+    keywords:
+    - storage
+    - snapshot
+    - validation
+    kubeVersion: '>= 1.25.0-0'
+    maintainers:
+    - name: The Piraeus Maintainers
+      url: https://github.com/piraeusdatastore/
+    name: rke2-snapshot-controller
+    sources:
+    - https://github.com/kubernetes-csi/external-snapshotter/
+    type: application
+    urls:
+    - assets/rke2-snapshot-controller/rke2-snapshot-controller-5.2.002.tgz
+    version: 5.2.002
   - apiVersion: v2
     appVersion: v8.6.0
     created: "2026-08-18T21:04:24.667398645Z"
@@ -29740,6 +29828,16 @@ entries:
     - assets/rke2-snapshot-controller/rke2-snapshot-controller-1.7.200.tgz
     version: 1.7.200
   rke2-snapshot-controller-crd:
+  - apiVersion: v1
+    appVersion: v8.6.0
+    created: "2026-08-19T16:43:19.326329262Z"
+    description: Installs the CRDs for rke2-snapshot-controller
+    digest: 1dc2b43f10688e401ae9a20461ed68e7ffdfe46aed031605890a3fde631595d5
+    name: rke2-snapshot-controller-crd
+    type: application
+    urls:
+    - assets/rke2-snapshot-controller/rke2-snapshot-controller-crd-5.2.002.tgz
+    version: 5.2.002
   - apiVersion: v1
     appVersion: v8.6.0
     created: "2026-08-18T21:04:24.675386648Z"
