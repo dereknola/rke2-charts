@@ -41,6 +41,35 @@ entries:
       catalog.cattle.io/rancher-version: '>= 2.7.0-0'
       catalog.cattle.io/release-name: harvester-cloud-provider
       catalog.cattle.io/ui-component: harvester-cloud-provider
+      catalog.cattle.io/upstream-version: 0.2.16
+    apiVersion: v2
+    appVersion: v0.2.9
+    created: "2026-10-08T21:50:30.299682741Z"
+    dependencies:
+    - condition: kube-vip.enabled
+      name: kube-vip
+      repository: file://./charts/kube-vip
+    description: A Helm chart for Harvester Cloud Provider
+    digest: ec34bdf8a1ac59e712b33eef574be1b8c7deb1a39115342701bda0358eb4cc35
+    keywords:
+    - infrastructure
+    - harvester
+    maintainers:
+    - name: harvester
+    name: harvester-cloud-provider
+    type: application
+    urls:
+    - assets/harvester-cloud-provider/harvester-cloud-provider-0.2.1600.tgz
+    version: 0.2.1600
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/display-name: Harvester Cloud Provider
+      catalog.cattle.io/kube-version: '>= 1.23.0-0'
+      catalog.cattle.io/namespace: kube-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/rancher-version: '>= 2.7.0-0'
+      catalog.cattle.io/release-name: harvester-cloud-provider
+      catalog.cattle.io/ui-component: harvester-cloud-provider
       catalog.cattle.io/upstream-version: 0.2.15
     apiVersion: v2
     appVersion: v0.2.8
@@ -3852,6 +3881,16 @@ entries:
     - assets/rke2-calico/rke2-calico-v3.18.1-101.tgz
     version: v3.18.1-101
   rke2-calico-crd:
+  - apiVersion: v2
+    appVersion: v3.33.0
+    created: "2026-10-08T21:50:30.697736746Z"
+    description: Installs crd.projectcalico.org and operator.tigera.io Custom Resource
+      Definitions (CRDs)
+    digest: a74fd690ce40f8ccc6c9fd708630267861e609e5f65af4a2c6ffacd4f0f25d56
+    name: rke2-calico-crd
+    urls:
+    - assets/rke2-calico-crd-3.33/rke2-calico-crd-v3.33.000.tgz
+    version: v3.33.000
   - apiVersion: v2
     appVersion: v3.32.2
     created: "2026-09-23T17:16:48.446389927Z"
@@ -21817,6 +21856,16 @@ entries:
     version: v0.24.001
   rke2-gateway-api-crd:
   - apiVersion: v2
+    appVersion: v1.6.3
+    created: "2026-10-08T21:50:32.10381095Z"
+    description: RKE2 Helm chart for Gateway API CRDs
+    digest: 19544d8d5ead2b6f10571ce2515d0764dab51eb64ca13c2e9ed3ad15a198ffba
+    name: rke2-gateway-api-crd
+    type: application
+    urls:
+    - assets/rke2-gateway-api-crd/rke2-gateway-api-crd-1.6.300.tgz
+    version: 1.6.300
+  - apiVersion: v2
     appVersion: v1.6.2
     created: "2026-10-07T18:35:13.640485749Z"
     description: RKE2 Helm chart for Gateway API CRDs
@@ -27538,6 +27587,27 @@ entries:
   rke2-multus:
   - apiVersion: v1
     appVersion: 4.3.1
+    created: "2026-10-08T21:50:32.59044044Z"
+    dependencies:
+    - condition: rke2-whereabouts.enabled
+      name: rke2-whereabouts
+      repository: file://./charts/rke2-whereabouts
+    description: Multus Helm chart for Kubernetes
+    digest: 06aaa1d25623f814aff4dcc6a3133b547a646ddbb67bbe200de2524a3962168e
+    home: https://github.com/k8snetworkplumbingwg/multus-cni
+    icon: https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/master/doc/images/Multus.png
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-multus
+    sources:
+    - https://github.com/intel/multus-cni
+    type: application
+    urls:
+    - assets/rke2-multus/rke2-multus-v4.3.104.tgz
+    version: v4.3.104
+  - apiVersion: v1
+    appVersion: 4.3.1
     created: "2026-10-07T18:35:14.118756554Z"
     dependencies:
     - condition: rke2-whereabouts.enabled
@@ -30022,6 +30092,15 @@ entries:
     version: v3.7.1-build2021041601
   rke2-multus-crd:
   - apiVersion: v1
+    created: "2026-10-08T21:50:32.500001252Z"
+    description: Installs the CRDs for rke2-multus
+    digest: 15f037b77690bac796a11bbc2270ab02f05f2357887134e4a2ac336ea4599b24
+    name: rke2-multus-crd
+    type: application
+    urls:
+    - assets/rke2-multus/rke2-multus-crd-4.3.104.tgz
+    version: 4.3.104
+  - apiVersion: v1
     created: "2026-10-07T18:35:14.029622026Z"
     description: Installs the CRDs for rke2-multus
     digest: e36682b25fee5cfbfe8b0e4efac69089608e99ea5f954e749b8c587f45aba947
@@ -31345,6 +31424,44 @@ entries:
     urls:
     - assets/rke2-traefik/rke2-traefik-41.1.101.tgz
     version: 41.1.101
+  - annotations:
+      artifacthub.io/changes: |
+        - "fix(ingressroute): :bug: use spec.ingressClassName with Proxy v3.7+"
+        - "feat(provider/kubernetesIngressNGINX): set default values on httpentrypoint & httpsentrypoint"
+        - "feat(deps): update traefik docker tag to v3.7.1"
+        - "feat(api): support disableDashboardAd option"
+        - "chore(release): publish 40.1.0"
+      fleet.cattle.io/bundle-id: rke2
+      traefik.io/hub-max-version: v3.20.1
+      traefik.io/hub-min-version: v3.19.3
+      traefik.io/proxy-max-version: v3.7.1
+      traefik.io/proxy-min-version: v3.6.0
+    apiVersion: v2
+    appVersion: v3.7.1
+    created: "2026-10-08T21:50:33.06109909Z"
+    description: A Traefik based Kubernetes ingress controller
+    digest: cc4b78ec099a1d2caadea70387c921d5c346bac8851846f847a1f03da0e926c6
+    home: https://traefik.io/
+    icon: https://raw.githubusercontent.com/traefik/traefik/master/docs/content/assets/img/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    - networking
+    kubeVersion: '>=1.25.0-0'
+    maintainers:
+    - email: michel.loiseleur@traefik.io
+      name: mloiseleur
+    - email: remi.buisson@traefik.io
+      name: darkweaver87
+    - name: jnoordsij
+    name: rke2-traefik
+    sources:
+    - https://github.com/traefik/traefik-helm-chart
+    - https://github.com/traefik/traefik
+    type: application
+    urls:
+    - assets/rke2-traefik-1.34-1.36/rke2-traefik-40.1.016.tgz
+    version: 40.1.016
   - annotations:
       artifacthub.io/changes: |
         - "fix(ingressroute): :bug: use spec.ingressClassName with Proxy v3.7+"
@@ -32756,6 +32873,18 @@ entries:
     urls:
     - assets/rke2-traefik/rke2-traefik-crd-41.1.101.tgz
     version: 41.1.101
+  - annotations:
+      fleet.cattle.io/bundle-id: rke2
+    apiVersion: v1
+    appVersion: v3.7.1
+    created: "2026-10-08T21:50:33.081679597Z"
+    description: Installs the CRDs for rke2-traefik
+    digest: d4a7739b77e8fb7cd07d5aee40d77fcfcddd507fcd78c4e5853c97acfd7a0f54
+    name: rke2-traefik-crd
+    type: application
+    urls:
+    - assets/rke2-traefik-1.34-1.36/rke2-traefik-crd-40.1.016.tgz
+    version: 40.1.016
   - annotations:
       fleet.cattle.io/bundle-id: rke2
     apiVersion: v1
