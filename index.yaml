@@ -2751,6 +2751,23 @@ entries:
       catalog.cattle.io/namespace: tigera-operator
     apiVersion: v2
     appVersion: v3.33.0
+    created: "2026-10-14T20:54:31.974762473Z"
+    description: Installs the Tigera operator for Calico
+    digest: 662149079655e0bc239c99f30a9f70e2987cb12d664081fa4c1240b4f50b8752
+    home: https://docs.tigera.io/calico
+    icon: https://docs.tigera.io/img/calico-logo.png
+    name: rke2-calico
+    sources:
+    - https://github.com/projectcalico/calico/tree/master/charts/tigera-operator
+    - https://github.com/tigera/operator
+    - https://github.com/projectcalico/calico
+    urls:
+    - assets/rke2-calico-3.33/rke2-calico-v3.33.001.tgz
+    version: v3.33.001
+  - annotations:
+      catalog.cattle.io/namespace: tigera-operator
+    apiVersion: v2
+    appVersion: v3.33.0
     created: "2026-10-07T18:35:12.208646948Z"
     description: Installs the Tigera operator for Calico
     digest: b53a3188abac7216857ecb13699d4d65bfcedc234682c53533be8d01124b99dc
@@ -4629,6 +4646,23 @@ entries:
     - assets/rke2-calico/rke2-calico-crd-v1.0.001.tgz
     version: v1.0.001
   rke2-canal:
+  - apiVersion: v1
+    appVersion: v3.32.2
+    created: "2026-10-14T20:54:32.2561325Z"
+    description: Install Canal Network Plugin.
+    digest: 65e76a2d8fd72ea4dfbb61f6f816874fa629d9f117b8775c1debed9e1141a69e
+    home: https://www.projectcalico.org/
+    keywords:
+    - canal
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-canal
+    sources:
+    - https://github.com/rancher/rke2-charts
+    urls:
+    - assets/rke2-canal/rke2-canal-v3.32.2-build2026101201.tgz
+    version: v3.32.2-build2026101201
   - apiVersion: v1
     appVersion: v3.32.2
     created: "2026-10-13T16:31:02.285687799Z"
@@ -22120,6 +22154,33 @@ entries:
       artifacthub.io/prerelease: "false"
     apiVersion: v2
     appVersion: 1.15.1
+    created: "2026-10-14T20:54:33.804070329Z"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: 55a6592218d3a3cbe6bef722d2374d4f63b6bc156b56bc95a281a1d036351df1
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: cpanato
+    - name: Gacko
+    - name: strongjz
+    - name: tao12345666333
+    name: rke2-ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - assets/rke2-ingress-nginx/rke2-ingress-nginx-4.15.113.tgz
+    version: 4.15.113
+  - annotations:
+      artifacthub.io/changes: |
+        - Update Ingress-Nginx version controller-v1.15.1
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.15.1
     created: "2026-10-13T16:31:03.480629621Z"
     description: Ingress controller for Kubernetes using NGINX as a reverse proxy
       and load balancer
@@ -27872,6 +27933,27 @@ entries:
   rke2-multus:
   - apiVersion: v1
     appVersion: 4.3.1
+    created: "2026-10-14T20:54:33.996471773Z"
+    dependencies:
+    - condition: rke2-whereabouts.enabled
+      name: rke2-whereabouts
+      repository: file://./charts/rke2-whereabouts
+    description: Multus Helm chart for Kubernetes
+    digest: 49258509c49c98353065d01bebc28a6d2b261372a5970138e697bf13f10c4883
+    home: https://github.com/k8snetworkplumbingwg/multus-cni
+    icon: https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/master/doc/images/Multus.png
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-multus
+    sources:
+    - https://github.com/intel/multus-cni
+    type: application
+    urls:
+    - assets/rke2-multus/rke2-multus-v4.3.110.tgz
+    version: v4.3.110
+  - apiVersion: v1
+    appVersion: 4.3.1
     created: "2026-10-13T16:31:03.630287098Z"
     dependencies:
     - condition: rke2-whereabouts.enabled
@@ -30398,6 +30480,15 @@ entries:
     version: v3.7.1-build2021041601
   rke2-multus-crd:
   - apiVersion: v1
+    created: "2026-10-14T20:54:33.908403136Z"
+    description: Installs the CRDs for rke2-multus
+    digest: 5209fffe7e860143e886e9c1afbaed2f81e55ae420ea93c8fcfcbc495d3e7eb9
+    name: rke2-multus-crd
+    type: application
+    urls:
+    - assets/rke2-multus/rke2-multus-crd-4.3.110.tgz
+    version: 4.3.110
+  - apiVersion: v1
     created: "2026-10-13T16:31:03.5626389Z"
     description: Installs the CRDs for rke2-multus
     digest: aa7ba589ce19273e5cb03271f7871c7bda70ef7e38c993e312587da17075e83e
@@ -30598,6 +30689,30 @@ entries:
     - assets/rke2-security-responder/rke2-security-responder-0.1.301.tgz
     version: 0.1.301
   rke2-snapshot-controller:
+  - apiVersion: v2
+    appVersion: v8.6.0
+    created: "2026-10-14T20:54:34.015875348Z"
+    description: |
+      Deploys a Snapshot Controller in a cluster. Snapshot Controllers are often bundled with the Kubernetes distribution,
+      this chart is meant for cases where it is not.
+    digest: d5e0ced134d181d6277a1fd680bff336613da9588f1aef3c6ecfaa1c830270fc
+    home: https://github.com/piraeusdatastore/helm-charts
+    icon: https://raw.githubusercontent.com/piraeusdatastore/piraeus/master/artwork/sandbox-artwork/icon/color.svg
+    keywords:
+    - storage
+    - snapshot
+    - validation
+    kubeVersion: '>= 1.25.0-0'
+    maintainers:
+    - name: The Piraeus Maintainers
+      url: https://github.com/piraeusdatastore/
+    name: rke2-snapshot-controller
+    sources:
+    - https://github.com/kubernetes-csi/external-snapshotter/
+    type: application
+    urls:
+    - assets/rke2-snapshot-controller/rke2-snapshot-controller-5.2.005.tgz
+    version: 5.2.005
   - apiVersion: v2
     appVersion: v8.6.0
     created: "2026-09-23T17:16:50.400576585Z"
@@ -31110,6 +31225,16 @@ entries:
     - assets/rke2-snapshot-controller/rke2-snapshot-controller-1.7.200.tgz
     version: 1.7.200
   rke2-snapshot-controller-crd:
+  - apiVersion: v1
+    appVersion: v8.6.0
+    created: "2026-10-14T20:54:34.026115611Z"
+    description: Installs the CRDs for rke2-snapshot-controller
+    digest: 727bb730b893f550e73e3dc39c1c88d933e8e356009a35c87a63b127844b729d
+    name: rke2-snapshot-controller-crd
+    type: application
+    urls:
+    - assets/rke2-snapshot-controller/rke2-snapshot-controller-crd-5.2.005.tgz
+    version: 5.2.005
   - apiVersion: v1
     appVersion: v8.6.0
     created: "2026-09-23T17:16:50.40989854Z"
