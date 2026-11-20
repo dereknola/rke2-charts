@@ -11,11 +11,23 @@ CHART_UPDATED=false
 
 if [ -n "$CALICO_PRIME_VERSION" ]; then
 	current_calico_prime_version=$(sed -n '/^+    imageTagOverrides:/,/^+$/ {
-		s|^+      [^:]*: "*\(v[0-9][0-9.]*-build[0-9][0-9]*\)"*$|\1|p
+		s|^+      [^:]*: "*\(v3\.[0-9][0-9.]*-build[0-9][0-9]*\)"*$|\1|p
 	}' packages/rke2-calico/generated-changes/patch/values.yaml.patch | sort -u)
 	if [ "$current_calico_prime_version" != "$CALICO_PRIME_VERSION" ]; then
 		echo "Updating Calico Prime images to $CALICO_PRIME_VERSION"
-		sed -i "/^+    imageTagOverrides:/,/^+$/ s/v[0-9][0-9.]*-build[0-9][0-9]*/$CALICO_PRIME_VERSION/g" \
+		sed -i "/^+    imageTagOverrides:/,/^+$/ s/v3\.[0-9][0-9.]*-build[0-9][0-9]*/$CALICO_PRIME_VERSION/g" \
+			packages/rke2-calico/generated-changes/patch/values.yaml.patch
+		IMAGES_UPDATED=true
+	fi
+fi
+
+if [ -n "$OPERATOR_PRIME_VERSION" ]; then
+	current_operator_prime_version=$(sed -n '/^+    operator:/,/^+    imageTagOverrides:/ {
+		s|^+      version: "*\(v1\.[0-9][0-9.]*-build[0-9][0-9]*\)"*$|\1|p
+	}' packages/rke2-calico/generated-changes/patch/values.yaml.patch)
+	if [ "$current_operator_prime_version" != "$OPERATOR_PRIME_VERSION" ]; then
+		echo "Updating Calico Prime operator to $OPERATOR_PRIME_VERSION"
+		sed -i "/^+    operator:/,/^+    imageTagOverrides:/ s/^+      version: .*/+      version: \"$OPERATOR_PRIME_VERSION\"/" \
 			packages/rke2-calico/generated-changes/patch/values.yaml.patch
 		IMAGES_UPDATED=true
 	fi
@@ -37,7 +49,7 @@ if [ -n "$CALICO_VERSION" ]; then
 		current_tigera_operator_version=$(yq '.tigeraOperator.version' workdir/tigera-operator/values.yaml)
 		rm -fr workdir
 		sed -i "s/ version: .*/ version: $CALICO_VERSION/g" packages/rke2-calico/generated-changes/patch/Chart.yaml.patch
-		sed -i "s/   version: .*/   version: $current_tigera_operator_version/g" packages/rke2-calico/generated-changes/patch/values.yaml.patch
+		sed -i "s/^   version: .*/   version: $current_tigera_operator_version/g" packages/rke2-calico/generated-changes/patch/values.yaml.patch
 		sed -i "s/   tag: .*/   tag: $CALICO_VERSION/g" packages/rke2-calico/generated-changes/patch/values.yaml.patch
 		sed -i "s/ appVersion: .*/ appVersion: $CALICO_VERSION/g" packages/rke2-calico-crd/generated-changes/patch/Chart.yaml.patch
 		sed -i "s/ version: .*/ version: $CALICO_VERSION/g" packages/rke2-calico-crd/generated-changes/patch/Chart.yaml.patch

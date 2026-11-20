@@ -33,6 +33,23 @@ sources:
         # pattern accepts any semver constraint
         pattern: "v[0-9]+.[0-9]+.[0-9]+-build[0-9]+"
 
+  operator-prime:
+    name: Get tigera-operator prime version
+    kind: githubrelease
+    spec:
+      owner: rancher
+      repository: image-build-calico-operator
+      token: '{{ requiredEnv .github.token }}'
+      username: '{{ requiredEnv .github.username }}'
+      typefilter:
+        release: true
+        draft: false
+        prerelease: false
+      versionfilter:
+        kind: regex
+        # pattern accepts any semver constraint
+        pattern: "v[0-9]+.[0-9]+.[0-9]+-build[0-9]+"
+
 targets:
   calicoImage:
     name: "Bump to latest calico version on the chart"
@@ -46,6 +63,8 @@ targets:
           value: '{{ source "calico" }}'
         - name: CALICO_PRIME_VERSION
           value: '{{ source "calico-prime" }}'
+        - name: OPERATOR_PRIME_VERSION
+          value: '{{ source "operator-prime" }}'
         - name: PATH
         - name: UPDATECLI_GITHUB_WORKFLOW_URL
         - name: GH_TOKEN
